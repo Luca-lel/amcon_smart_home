@@ -70,34 +70,35 @@ def changeColor(id, color):
     nodeid = devicelist[id].nodeid
     lib.changeColor(nodeid, color)
     devicelist[id].color = color
-    return
+    return devicelist[id]
 
 @app.post("/change-name")
 def changeName(id, targetname):
     nodeid = devicelist[id].nodeid
     devicelist[id].name = targetname
-    return
+    return devicelist[id]
 
 @app.post("/change-brightness")
 def changeBrightness(id, brightnesslevel: int):
     nodeid = devicelist[id].nodeid
     lib.changeBrightness(nodeid, brightnesslevel)
     devicelist[id].brightness = lib.brightnessLevels[brightnesslevel]
-    return
+    return devicelist[id]
 
 @app.delete("/delete-device")
 def deleteDevice(id):
     nodeid = devicelist[id].nodeid
     if devicelist[id] == True:
         del devicelist[id]
-    return
+    return devicelist[id]
 
 @app.post("/change-actionmode")
 def changeActionMode(id, actionmode: int):
-    nodeid = devicelist[id].nodeid
-    lib.changeActionMode(nodeid, actionmode)
-    devicelist[id].actionmode = actionmode
-    return
+    if devicelist[id].status == DeviceStatus.on:
+        nodeid = devicelist[id].nodeid
+        lib.changeActionMode(nodeid, actionmode)
+        devicelist[id].actionmode = actionmode
+    return devicelist[id]
 
 app.add_middleware(
     CORSMiddleware,

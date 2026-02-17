@@ -8,13 +8,21 @@
 ## Set-up
 First create a new environment with
 ```bash
-python3 -m venv venv
+python -m venv venv
 ```
-Then type 
+then type 
 ```bash
 source venv/bin/activate
 ```
-To get into the environment
+incase this doesnt work, go into
+```bash
+cd venv/scripts
+```
+then run
+```bash
+activate
+```
+Now we are in a separate environment
 After that you can install the dependencies using
 ```bash
 pip install --no-index --find-links deps -r requirements.txt

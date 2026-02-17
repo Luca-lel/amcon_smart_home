@@ -1,5 +1,4 @@
 <a id="readme-top"></a>
-
 # todo
 * Fix current return logic because it returns "null" on some endpoints
 * Try out all endpoints

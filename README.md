@@ -41,7 +41,7 @@ Erstelle zuerst eine neue Python-Umgebung mit:
 
 ```bash
 python -m venv venv
-````
+```
 
 Dann:
 

@@ -1,4 +1,4 @@
-````md <a id="readme-top"></a>
+<a id="readme-top"></a>
 # Smart Home System
 
 Dieses Projekt ist ein selbst entwickeltes **Smart-Home-System**, das Geräte zentral verwaltet und steuert. Ziel ist es, eine einfache Plattform zu schaffen, über die verschiedene Smart-Home-Geräte hinzugefügt, visualisiert und kontrolliert werden können.

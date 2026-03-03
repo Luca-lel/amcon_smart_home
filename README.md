@@ -119,5 +119,5 @@ https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode?id=<id>
 https://www.canva.com/colors/color-wheel/
 ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-```
+<p align="right"><a href="#readme-top">^ Zurück nach oben ^</a></p>
+

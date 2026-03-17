@@ -1,14 +1,46 @@
 body {
-  background-color: lightblue;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  background-image: url("image.png");
+  align-items: center;
+  padding: 3rem;
 }
 
 h1 {
-  color: rgb(137, 63, 63);
+  color: rgb(224, 194, 24);
   text-align: center;
 }
 
 p {
+  color: rgb(224, 194, 24);
   font-family: verdana;
   font-size: 20px;
   text-align: center;
+}
+.field {
+  background-color: rgb(60, 60, 60);
+  padding: 2cm;
+  border-radius: 25px;
+
+}
+
+h3 {
+  color: rgb(125, 192, 99);
+  font-family: verdana;
+  font-size: 20px;
+  text-align: center;
+}
+.button {
+  background-color: rgb(125, 192, 99);
+  color: rgb(0, 0, 0);
+  /*visibility: hidden;*/
+}
+select {
+  background-color: rgb(125, 192, 99);
+  color: rgb(0, 0, 0);
+}
+input {
+  background-color: rgb(125, 192, 99);
+  color: rgb(0, 0, 0);
 }

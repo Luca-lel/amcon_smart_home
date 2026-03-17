@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Tolle Seite oder so</title>
+<title>Jump mit h</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-<h1>Das ist eine Überschrift</h1>
-<p id="demo">Das ist ein Paragraf</p>
-
-<button type="button" onclick="myFunction()">Klick mich!</button>
+<body onload="getDevices()">
 
 <script src="script.js"></script>
 
+<div class="field">
+<h1>Jump mit h</h1>
+
+<p id="demo">Das beste Smart-Home System</p>
+<div>
+  <h3>Neues Gerät hinzufügen</h3>
+  <input type="text" id="deviceName" placeholder="Name">
+  <select id="deviceType">
+    <option id="light">Licht</option>
+    <option id="plug">Stecker</option>
+  </select>
+  <button type="button" onclick="submitDevice()"class="button">Speichern</button>
+</div>
+
+
+<div>
+  <button type="button" onclick="addDevice()"class="button">Gerät hinzufügen</button><Br>
+  <button type="button" onclick="removeDevice()" class="button">Gerät entfernen</button><Br>
+  <button type="button" onclick="toggleDevice()"class="button">Gerät toggle</button><Br>
+  <button type="button" onclick="changeColour()"class="button">change colour</button><Br>
+  <button type="button" onclick="changeName()"class="button">change name</button><Br>
+  <button type="button" onclick="changeBrightness()"class="button">change brightness</button><Br>
+  <button type="button" onclick="changeMode()"class="button">change mode</button><Br>
+</div>
+</div>
+
+<p id="display"><p></p>
 </body>
 </html>

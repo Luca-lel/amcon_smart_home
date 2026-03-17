@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Jump mit h</title>
+<title>jump mit joHannes</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body onload="getDevices()">
@@ -9,28 +9,54 @@
 <script src="script.js"></script>
 
 <div class="field">
-<h1>Jump mit h</h1>
+<h1>jump mit joHannes</h1>
 
-<p id="demo">Das beste Smart-Home System</p>
+<p id="demo">das smarteste Home</p>
+
 <div>
-  <h3>Neues Gerät hinzufügen</h3>
-  <input type="text" id="deviceName" placeholder="Name">
-  <select id="deviceType">
-    <option id="light">Licht</option>
-    <option id="plug">Stecker</option>
-  </select>
-  <button type="button" onclick="submitDevice()"class="button">Speichern</button>
+  <ul id="liste">
+    <li></li>
+  </ul>
 </div>
 
 
+
+
+<br>
 <div>
-  <button type="button" onclick="addDevice()"class="button">Gerät hinzufügen</button><Br>
-  <button type="button" onclick="removeDevice()" class="button">Gerät entfernen</button><Br>
-  <button type="button" onclick="toggleDevice()"class="button">Gerät toggle</button><Br>
-  <button type="button" onclick="changeColour()"class="button">change colour</button><Br>
-  <button type="button" onclick="changeName()"class="button">change name</button><Br>
-  <button type="button" onclick="changeBrightness()"class="button">change brightness</button><Br>
-  <button type="button" onclick="changeMode()"class="button">change mode</button><Br>
+  <h3>neues gerät Hinzufügen</h3>
+  <input type="text" id="deviceName" placeholder="name">
+  <select id="deviceType">
+    <option id="light">licHt</option>
+    <option id="plug">stecker</option>
+  </select>
+  <button type="button" onclick="submitDevice()"class="button">speicHern</button>
+</div>
+
+<div>
+  <button type="button" onclick="addDevice()"class="button">gerät Hinzufügen</button><Br>
+  <button type="button" onclick="removeDevice()" class="button">gerät entfernen</button><Br>
+  <button type="button" onclick="toggleDevice()"class="button">gerät toggle</button><Br>
+    <div>
+      <h3>farbe ändern</h3>
+      <input type="text" id="changeColour" placeholder="farbe">
+    </div>
+  <button type="button" onclick="changeColour()"class="button">cHange colour</button><Br>
+    <div>
+      <h3>name ändern</h3>
+      <input type="text" id="targetName" placeholder="name">
+    </div>
+  <button type="button" onclick="changeName()"class="button">cHange name</button><Br>
+    <div>
+      <h3>Helligkeit ändern</h3>
+      <input type="text" id="changeBrightness" placeholder="Helligkeit">
+    </div>
+  <button type="button" onclick="changeBrightness()"class="button">cHange brigHtness</button><Br>
+    <div>
+      <h3>modus ändern</h3>
+      <input type="text" id="changeMode" placeholder="modus">
+    </div>
+  <button type="button" onclick="changeMode()"class="button">cHange mode</button><Br>
 </div>
 </div>
 

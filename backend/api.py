@@ -4,6 +4,14 @@ from enum import Enum
 import uuid 
 import lib 
 import random
+import logging as _log
+
+_log.basicConfig(
+    level=_log.INFO,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s"
+)
+
+log = _log.getLogger(__name__)
 
 devicelist = {}
 
@@ -27,6 +35,7 @@ class Device:
         self.color = color
         self.nodeid = nodeid
         self.actionmode = actionmode
+
 
 app = FastAPI()
 

@@ -6,7 +6,7 @@ Dieses Projekt ist ein selbst entwickeltes **Smart-Home-System**, das Geräte ze
 ## Funktionen
 
 - Geräte zu einem Smart-Home-System hinzufügen  
-- Verwaltung verschiedener Gerätetypen (z. B. Lampen oder Steckdosen)  
+- Verwaltung verschiedener Gerätetypen (z. B. Lampen oder Steckdosen)  ,
 - Steuerung von Gerätezuständen wie **Ein/Aus**, **Helligkeit** oder **Farbe**  
 - Dynamische Benutzeroberfläche zur Anzeige und Steuerung aller Geräte  
 - Kommunikation mit einem Backend über eine **REST-API**

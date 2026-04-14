@@ -4,7 +4,7 @@ import subprocess
 
 brightnessLevels = [1, 70, 150, 254]
 
-CHIP_TOOL = "../connectedhomeip/out/chip-tool"
+CHIP_TOOL = "../smarthome-ulf/connectedhomeip/out/chip-tool"
 PAA_PATH = os.path.join(
     os.environ["HOME"],
     "connectedhomeip/credentials/production/paa-root-certs/"

@@ -1,15 +1,18 @@
+var devices = []; //declare the array
+
 async function addDevice() {
   renderListe();
   const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/add-device";
   
   let nameValue = document.getElementById("deviceName").value;
   let typeValue = document.getElementById("deviceType").value;
-  if(typeValue == "Licht") {
+  if(typeValue == "licHt") {
     typeValue = "light"
   }
-  else if(typeValue == "Stecker"){
-    typeValue == "plug"
+  else if(typeValue == "stecker"){
+    typeValue =  "plug"
   }
+  id = 0;
   let status = "on";
   
   try {
@@ -28,6 +31,8 @@ async function addDevice() {
     }
     const result = await response.json();
     console.log(result);
+    devices.push(result); //add to the array
+    console.log(list)
   } catch (error) {
     console.error(error.message);
   }
@@ -225,6 +230,8 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/get-devices"
     const result = await response.json();
     console.log(result);
     document.getElementById("display").innerHTML = JSON.stringify(result);
+    devices = result.devices
+    console.log(devices)
   } catch (error) {
     console.error(error.message);
   }

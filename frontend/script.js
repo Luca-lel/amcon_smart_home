@@ -26,12 +26,24 @@ async function addDevice() {
       });
 
     //response
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+    if (!response.ok) {}
     const result = await response.json();
     console.log(result);
     devices.push(result); //add to the array
+
+    const container = document.getElementById("deviceList")
+    devices.forEach(device =>{
+      const div = document.createElement("div");
+
+      div.innerHTML =`
+      ${device.name}
+      <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
+      <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
+      `;
+      container.appendChild(div);
+    });
+
+
     console.log(list)
   } catch (error) {
     console.error(error.message);
@@ -39,9 +51,9 @@ async function addDevice() {
   renderListe();
 }
 
-async function removeDevice() {
+async function removeDevice(id) {
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
+
 
   try {
     //request
@@ -66,9 +78,8 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
 
 
 }
-async function toggleDevice(){
+async function toggleDevice(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
 
 
   try {

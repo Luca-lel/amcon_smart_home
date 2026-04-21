@@ -49,3 +49,8 @@ select {
 input {
   background-color: rgb(192, 141, 99);
 }
+.buttons {
+  color: red;
+  background-color: blue;
+  
+}

@@ -30,18 +30,7 @@ async function addDevice() {
     const result = await response.json();
     console.log(result);
     devices.push(result); //add to the array
-
-    const container = document.getElementById("deviceList")
-    devices.forEach(device =>{
-      const div = document.createElement("div");
-
-      div.innerHTML =`
-      ${device.name}
-      <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
-      <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
-      `;
-      container.appendChild(div);
-    });
+    createElements();
 
 
     console.log(list)
@@ -51,8 +40,35 @@ async function addDevice() {
   renderListe();
 }
 
+async function createElements() {
+   const container = document.getElementById("deviceList")
+    devices.forEach(device =>{
+      const div = document.createElement("div");
+
+      div.innerHTML =`
+      ${device.name}
+      <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
+      <br>
+      <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
+      <button class = "buttons" onclick="changeName('${device.id}')">change name</button>
+      <br>
+      <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
+      <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
+      <br>
+      <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
+      `;
+      container.appendChild(div);
+    });
+
+}
+
+
+
+
+
+
 async function removeDevice(id) {
-const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name";
+const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-device";
 
 
   try {
@@ -104,14 +120,13 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
 
 }
 
-async function changeColour(){
-const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
-  let color = document.getElementById("changeColour").value;
-
+async function changeColour(id){
+  const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-color";
+  let inputColor = document.getElementById(`color${id}`);
+  let color = inputColor.value;
   try {
     //request
-    const response = await fetch(url+`?id=${id}&color=${color}`,
+    const response = await fetch(url+`?id=${id}&color=${encodeURIComponent(color)}`,
       {
         method: "POST",
         headers: new Headers({
@@ -131,10 +146,9 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
 
 
 }
-async function changeName (){
+async function changeName (id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
-  let targetName = document.getElementById("targetName").value;
+  let targetName = document.getElementById(`name${id}`).value;
 
   try {
     //request
@@ -188,7 +202,7 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
 
 }
 async function changeMode(){
-const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name";
+const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode";
 const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
   let actionmode = document.getElementById("changeMode").value;
 
@@ -211,15 +225,7 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
   } catch (error) {
     console.error(error.message);
   }
-
-
-
 }
-function submitDevice(){
-   const name = document.getElementById("deviceName").value;
-   const type = document.getElementById("deviceType").value;
-}
-
 
 async function getDevices(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/get-devices";
@@ -240,26 +246,11 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/get-devices"
     }
     const result = await response.json();
     console.log(result);
-    document.getElementById("display").innerHTML = JSON.stringify(result);
     devices = result.devices
     console.log(devices)
+    createElements()
   } catch (error) {
     console.error(error.message);
   }
 
-
 }
-let liste = ["1", "2", "3"];
-async function renderListe(){
-  document.getElementById("liste").innerHTML = JSON.stringify(liste[1]);
-  const ul = document.getElementByI("liste");
-  ul.innerHTML = "";
-  liste.forEach((item, i) => {
-    const li = document.createElement("li");
-    li.textContent = item;
-  let asd = JSON.stringify(liste[i]);
-
-    ul.appendChild(asd);
-  });
-}
-

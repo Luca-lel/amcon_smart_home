@@ -70,8 +70,6 @@ async function createElements() {
 
 async function removeDevice(id) {
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-device";
-
-
   try {
     //request
     const response = await fetch(url+`?id=${id}`,
@@ -97,8 +95,6 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-devic
 }
 async function toggleDevice(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
-
-
   try {
     //request
     const response = await fetch(url+`?id=${id}`, 
@@ -150,7 +146,6 @@ async function changeColour(id){
 async function changeName (id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name";
   let targetName = document.getElementById(`name${id}`).value;
-
   try {
     //request
     const response = await fetch(url+`?targetname=${targetName}&type=${id}`,
@@ -176,9 +171,8 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
 }
 async function changeBrightness(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brightness";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
+const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
   let brightnessLevel = document.getElementById("changeBrightness").value;
-
   try {
     //request
     const response = await fetch(url+`?id=${id}&brightnesslevel=${brightnessLevel}`,
@@ -204,7 +198,7 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
 }
 async function changeMode(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
+const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
   let actionmode = document.getElementById("changeMode").value;
 
   try {
@@ -230,7 +224,6 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a"
 
 async function getDevices(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/get-devices";
-
   try {
     //request
     const response = await fetch(url, 

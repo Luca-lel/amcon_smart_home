@@ -50,7 +50,12 @@ input {
   background-color: rgb(192, 141, 99);
 }
 .buttons {
-  color: red;
-  background-color: blue;
+  color: #bd917e;
+  background-color: #f5c444;
+  
+}
+.buttonsExtra {
+  color: #f5c444;
+  background-color: #bd917e;
   
 }

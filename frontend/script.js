@@ -46,7 +46,8 @@ async function createElements() {
       const div = document.createElement("div");
 
       div.innerHTML =`
-      ${device.name}
+      
+      <span class="buttonsExtra">${device.name}</span>
       <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
       <br>
       <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">

@@ -29,6 +29,8 @@ async function addDevice() {
     const result = await response.json();
     console.log(result);
     devices.push(result); //add to the array
+    deviceJSON = JSON.stringify(devices)
+    console.log(deviceJSON)
     createElements();
 
 
@@ -54,10 +56,27 @@ async function createElements() {
         <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
         <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
       <br>
-        <input class = "textBox" id ="brightness${device.id}" type="text" placeholder="brightness">
+        <select id = "brightness${id}">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
         <button class = "buttons" onclick="changeBrightness('${device.id}')">change brightness</button>
       <br>
-        <input class = "textBox" id ="changeMode${device.id}" type="text" placeholder="actionmode">
+        <select id = "changeMode${id}">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
         <button class = "buttons" onclick="changeMode('${device.id}')">change actionmode</button>
       <br>
         <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
@@ -249,5 +268,19 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/get-devices"
   } catch (error) {
     console.error(error.message);
   }
+}
 
+async function exportDevices() {
+  deviceJSON = JSON.stringify(devices);
+  console.log(deviceJSON);
+
+  const blob = new Blob([deviceJSON], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "devices.json";
+  a.click();
+
+  URL.revokeObjectURL(url); // cleanup
 }

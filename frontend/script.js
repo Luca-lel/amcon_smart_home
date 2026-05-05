@@ -37,25 +37,27 @@ async function addDevice() {
     console.log(list)
   } catch (error) {
     console.error(error.message);
-  };
+  }
 }
 
 async function createElements() {
    const container = document.getElementById("deviceList")
     devices.forEach(device =>{
       const div = document.createElement("div");
+      div.classList.add("devicehope");
 
       div.innerHTML =`
       
       <span class="buttonsExtra">${device.name}</span>
-        <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
+      <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
       <br>
-        <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
-        <button class = "buttons" onclick="changeName('${device.id}')">change name</button>
+      <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
+      <button class = "buttons" onclick="changeName('${device.id}')">change name</button>
       <br>
-        <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
-        <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
+      <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
+      <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
       <br>
+<<<<<<< Updated upstream
         <select id = "brightness${id}">
           <option>0</option>
           <option>1</option>
@@ -80,7 +82,11 @@ async function createElements() {
         <button class = "buttons" onclick="changeMode('${device.id}')">change actionmode</button>
       <br>
         <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
+=======
+      <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
+>>>>>>> Stashed changes
       `;
+      <br></br>
       container.appendChild(div);
     });
 
@@ -192,9 +198,10 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
 
 
 }
-async function changeBrightness(id){
+async function changeBrightness(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brightness";
-  let brightnessLevel = document.getElementById(`brightness${id}`).value;
+const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
+  let brightnessLevel = document.getElementById("changeBrightness").value;
   try {
     //request
     const response = await fetch(url+`?id=${id}&brightnesslevel=${brightnessLevel}`,
@@ -218,10 +225,10 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brigh
 
 
 }
-async function changeMode(id){
+async function changeMode(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode";
- //todo
-  let actionmode = document.getElementById(`changeMode${id}`).value;
+const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
+  let actionmode = document.getElementById("changeMode").value;
 
   try {
     //request

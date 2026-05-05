@@ -57,7 +57,6 @@ async function createElements() {
       <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
       <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
       <br>
-<<<<<<< Updated upstream
         <select id = "brightness${id}">
           <option>0</option>
           <option>1</option>
@@ -82,20 +81,12 @@ async function createElements() {
         <button class = "buttons" onclick="changeMode('${device.id}')">change actionmode</button>
       <br>
         <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
-=======
-      <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
->>>>>>> Stashed changes
       `;
       <br></br>
       container.appendChild(div);
     });
 
 }
-
-
-
-
-
 
 async function removeDevice(id) {
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-device";
@@ -118,9 +109,6 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-devic
   } catch (error) {
     console.error(error.message);
   }
-
-
-
 }
 async function toggleDevice(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
@@ -143,7 +131,6 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
   } catch (error) {
     console.error(error.message);
   }
-
 }
 
 async function changeColour(id){
@@ -169,9 +156,8 @@ async function changeColour(id){
   } catch (error) {
     console.error(error.message);
   }
-
-
 }
+
 async function changeName (id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name";
   let targetName = document.getElementById(`name${id}`).value;
@@ -194,10 +180,8 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
   } catch (error) {
     console.error(error.message);
   }
-
-
-
 }
+
 async function changeBrightness(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brightness";
 const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
@@ -221,10 +205,8 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
   } catch (error) {
     console.error(error.message);
   }
-
-
-
 }
+
 async function changeMode(){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode";
 const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo

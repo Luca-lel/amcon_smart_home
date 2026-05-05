@@ -36,7 +36,6 @@ async function addDevice() {
   } catch (error) {
     console.error(error.message);
   }
-  renderListe();
 }
 
 async function createElements() {

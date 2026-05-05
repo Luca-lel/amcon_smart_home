@@ -1,7 +1,6 @@
 var devices = []; //declare the array
 
 async function addDevice() {
-  renderListe();
   const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/add-device";
   
   let nameValue = document.getElementById("deviceName").value;

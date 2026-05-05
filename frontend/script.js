@@ -35,7 +35,7 @@ async function addDevice() {
     console.log(list)
   } catch (error) {
     console.error(error.message);
-  }
+  };
 }
 
 async function createElements() {
@@ -46,15 +46,21 @@ async function createElements() {
       div.innerHTML =`
       
       <span class="buttonsExtra">${device.name}</span>
-      <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
+        <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
       <br>
-      <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
-      <button class = "buttons" onclick="changeName('${device.id}')">change name</button>
+        <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
+        <button class = "buttons" onclick="changeName('${device.id}')">change name</button>
       <br>
-      <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
-      <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
+        <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
+        <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
       <br>
-      <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
+        <input class = "textBox" id ="brightness${device.id}" type="text" placeholder="brightness">
+        <button class = "buttons" onclick="changeBrightness('${device.id}')">change brightness</button>
+      <br>
+        <input class = "textBox" id ="changeMode${device.id}" type="text" placeholder="actionmode">
+        <button class = "buttons" onclick="changeMode('${device.id}')">change actionmode</button>
+      <br>
+        <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
       `;
       container.appendChild(div);
     });
@@ -167,10 +173,9 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
 
 
 }
-async function changeBrightness(){
+async function changeBrightness(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brightness";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
-  let brightnessLevel = document.getElementById("changeBrightness").value;
+  let brightnessLevel = document.getElementById(`brightness${id}`).value;
   try {
     //request
     const response = await fetch(url+`?id=${id}&brightnesslevel=${brightnessLevel}`,
@@ -194,10 +199,10 @@ const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
 
 
 }
-async function changeMode(){
+async function changeMode(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode";
-const id = "690c00ab-4eef-411c-9d4f-e40489745a1a" //todo
-  let actionmode = document.getElementById("changeMode").value;
+ //todo
+  let actionmode = document.getElementById(`changeMode${id}`).value;
 
   try {
     //request

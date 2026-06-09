@@ -19,8 +19,9 @@ p {
   color: rgb(192, 141, 99);
   font-family: verdana;
   font-size: 20px;
-  text-align: center;
+  float: left;
 }
+
 .field {
   background-color: rgba(42, 3, 78, 0.76);
   padding: 1cm 1cm 1cm 1cm ;
@@ -37,36 +38,81 @@ h3 {
   font-size: 20px;
   text-align: center;
 }
+
 .button {
   background-color: rgb(192, 141, 99);
   color: rgb(0, 0, 0);
-  /*visibility: hidden;*/
 }
+
 select {
   background-color: rgb(192, 141, 99);
   color: rgb(0, 0, 0);
 }
+
 input {
   background-color: rgb(192, 141, 99);
 }
-.buttons {
-  color: #bd917e;
-  background-color: #f5c444;
-  
-}
-.buttonsExtra {
-  color: #f5c444;
-  background-color: #bd917e;
-  align-content: center;
-  
-}
+
 .devicehope{
-  background-color: rgba(42, 3, 78, 0.76);
+  background-color: rgba(106, 78, 117, 0.76);
   border-style: solid;
   border-width: 5px;
   border: 10px;
   border-radius: 25px;
   justify-content: center;
-  padding: 1cm 1cm 1cm 1cm ;
+  padding: 15px;
 
+}
+
+.device-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.device-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: #bd917e;
+  background-color: #f5c444;
+  cursor: pointer;
+}
+
+.toggle-button {
+  width: 60px;
+  height: 60px;
+
+  background-image: url("johagreen.png");
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 40px;
+  background-color: green;
+
+  border: none;
+  cursor: pointer;
+}
+
+.remove-button {
+  width: 60px;
+  height: 60px;
+
+  background-image: url("johared.png");
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 40px;
+  background-color: rgb(194, 18, 18);
+
+  border: none;
+  cursor: pointer;
+}
+
+.device-button:hover {
+  background-color: #0056b3;
 }

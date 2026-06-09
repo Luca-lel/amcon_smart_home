@@ -49,23 +49,36 @@ async function createElements() {
 
       div.innerHTML =`
       
-      <span class="buttonsExtra">${device.name}</span>
-      <button class = "buttons" onclick="toggleDevice('${device.id}')">toggle</button>
+      <div class="device-row">
+        <p>${device.name}</p>
+        <button class="toggle-button" onclick="toggleDevice('${device.id}')"></button>
+        <button class = "remove-button" onclick="removeDevice('${device.id}')"></button>
+      </div>
+      
       <br>
-      <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
-      <button class = "buttons" onclick="changeName('${device.id}')">change name</button>
+      <div class="device-row">
+        <input class = "textBox" id ="name${device.id}" type="text" placeholder="name">
+        <button class = "device-button" onclick="changeName('${device.id}')">change name</button>
+      </div>
       <br>
-      <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
-      <button class = "buttons" onclick="changeColour('${device.id}')">color change</button>
-      <br>
+      
+      <div class="device-row">
+        <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
+        <button class = "device-button" onclick="changeColour('${device.id}')">color change</button>
+      </div>
+
+      <div class="device-row">
+        <br>
         <select id = "brightness${device.id}">
           <option>0</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
         </select>
-        <button class = "buttons" onclick="changeBrightness('${device.id}')">change brightness</button>
-      <br>
+        <button class = "device-button" onclick="changeBrightness('${device.id}')">change brightness</button>
+      </div>
+      <div class="device-row">
+        <br>
         <select id = "changeMode${device.id}">
           <option>0</option>
           <option>1</option>
@@ -79,9 +92,8 @@ async function createElements() {
           <option>9</option>
           <option>10</option>
         </select>
-        <button class = "buttons" onclick="changeMode('${device.id}')">change actionmode</button>
-      <br>
-        <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
+        <button class = "device-button" onclick="changeMode('${device.id}')">change actionmode</button>
+      </div>
       `;
 
       container.appendChild(div);

@@ -83,7 +83,7 @@ async function createElements() {
       <br>
         <button class = "buttons" onclick="removeDevice('${device.id}')">Remove</button>
       `;
-      
+
       container.appendChild(div);
     });
 
@@ -95,7 +95,7 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-devic
     //request
     const response = await fetch(url+`?id=${id}`,
       {
-        method: "POST",
+        method: "DELETE",
         headers: new Headers({
             "ngrok-skip-browser-warning": "true",
         }),
@@ -107,7 +107,8 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-devic
     }
     const result = await response.json();
     console.log(result);
-    devices = devices.filter(device => device !== id)
+    devices = devices.filter(device => device.id !== id);
+    getDevices()
     
   } catch (error) {
     console.error(error.message);
@@ -166,7 +167,7 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
   let targetName = document.getElementById(`name${id}`).value;
   try {
     //request
-    const response = await fetch(url+`?targetname=${targetName}&type=${id}`,
+    const response = await fetch(url+`?targetname=${targetName}&id=${id}`,
       {
         method: "POST",
         headers: new Headers({
@@ -187,7 +188,7 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
 
 async function changeBrightness(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brightness";
-  let brightnessLevel = document.getElementById("changeBrightness").options[select.selectedIndex].text;
+  let brightnessLevel = document.getElementById(`brightness${id}`).value;
   try {
     //request
     const response = await fetch(url+`?id=${id}&brightnesslevel=${brightnessLevel}`,
@@ -211,7 +212,7 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brigh
 
 async function changeMode(id){
 const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actionmode";
-  let actionmode = document.getElementById("changeMode").options[select.selectedIndex].text;
+  let actionmode = document.getElementById(`changeMode${id}`).value;
 
   try {
     //request

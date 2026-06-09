@@ -97,8 +97,7 @@ def changeBrightness(id, brightnesslevel: int):
 @app.delete("/delete-device")
 def deleteDevice(id):
     nodeid = devicelist[id].nodeid
-    if devicelist[id] == True:
-        del devicelist[id]
+    del devicelist[nodeid]
     return devicelist[id]
 
 @app.post("/change-actionmode")

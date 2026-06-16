@@ -1,5 +1,5 @@
 var devices = []; //declare the array
-
+getDevices();
 
 async function addDevice() {
   const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/add-device";
@@ -43,6 +43,7 @@ async function addDevice() {
 
 async function createElements() {
    const container = document.getElementById("deviceList")
+  
     devices.forEach(device =>{
       const div = document.createElement("div");
       div.classList.add("devicehope");
@@ -52,7 +53,7 @@ async function createElements() {
       <div class="device-row">
         <p>${device.name}</p>
         <button class="toggle-button" onclick="toggleDevice('${device.id}')"></button>
-        <button class = "remove-button" onclick="removeDevice('${device.id}')"></button>
+        <button class = "remove-button" onclick="removeDevice('${device.id}')">DELETE</button>
       </div>
       
       <br>
@@ -63,40 +64,43 @@ async function createElements() {
       <br>
       
       <div class="device-row">
-        <input class = "textBox" id ="color${device.id}" type="color" placeholder="farbe">
+        <input class = "textBox" id ="color${device.id}" type="color" value="#FF0000" placeholder="farbe">
         <button class = "device-button" onclick="changeColour('${device.id}')">color change</button>
       </div>
 
       <div class="device-row">
         <br>
-        <select id = "brightness${device.id}">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+        <select id ="brightness${device.id}">
+          <option value="1">0%</option>
+          <option value="70">33%</option>
+          <option value="150">66%</option>
+          <option value="254">100%</option>
         </select>
-        <button class = "device-button" onclick="changeBrightness('${device.id}')">change brightness</button>
+        <button class = "device-button" onclick="changeBrightness('${device.id}')">Change Brightness</button>
       </div>
       <div class="device-row">
         <br>
-        <select id = "changeMode${device.id}">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
+        <select id="changeMode${device.id}">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
-        <button class = "device-button" onclick="changeMode('${device.id}')">change actionmode</button>
+        <button class = "device-button" onclick="changeMode('${device.id}')">Change Mode</button>
       </div>
       `;
-
       container.appendChild(div);
+      document.getElementById(`changeMode${device.id}`).value = String(device.actionmode);
+      document.getElementById(`brightness${device.id}`).value = String(device.brightness);
+      document.getElementById(`name${device.id}`).value = String(device.name);
+      document.getElementById(`color${device.id}`).value =  device.color;
     });
 
 }
@@ -117,13 +121,11 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/delete-devic
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
-    const result = await response.json();
-    console.log(result);
-    devices = devices.filter(device => device.id !== id);
-    getDevices()
-    
   } catch (error) {
     console.error(error.message);
+  }
+  finally {
+     getDevices();
   }
 }
 async function toggleDevice(id){
@@ -146,6 +148,9 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/toggle";
     console.log(result);
   } catch (error) {
     console.error(error.message);
+  }
+  finally {
+     getDevices();
   }
 }
 
@@ -172,6 +177,9 @@ async function changeColour(id){
   } catch (error) {
     console.error(error.message);
   }
+  finally {
+     getDevices();
+  }
 }
 
 async function changeName (id){
@@ -195,6 +203,9 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-name"
     console.log(result);
   } catch (error) {
     console.error(error.message);
+  }
+  finally {
+     getDevices();
   }
 }
 
@@ -220,6 +231,9 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-brigh
   } catch (error) {
     console.error(error.message);
   }
+  finally {
+     getDevices();
+  }
 }
 
 async function changeMode(id){
@@ -244,6 +258,9 @@ const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/change-actio
     console.log(result);
   } catch (error) {
     console.error(error.message);
+  }
+  finally {
+     getDevices();
   }
 }
 

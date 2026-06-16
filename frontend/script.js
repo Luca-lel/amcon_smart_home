@@ -44,7 +44,7 @@ async function addDevice() {
 
 async function createElements() {
     const container = document.getElementById("deviceList")
-    container.innerHTML='';
+    container.innerHTML='<div id="deviceList"/>';
 
     devices.forEach(device =>{
       const div = document.createElement("div");

@@ -1,5 +1,6 @@
 var devices = []; //declare the array
 getDevices();
+getDevices();
 
 async function addDevice() {
   const url = "https://sharolyn-windtight-dismissively.ngrok-free.dev/add-device";
